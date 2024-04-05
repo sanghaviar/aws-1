@@ -18,10 +18,10 @@ jobs:
       - name: Checkout aws
         uses: actions/checkout@v2
 
-      - name: Checkout modules
+      - name: Checkout aws_res
         uses: actions/checkout@v2
         with:
-          repository: sanghaviar/modules
+          repository: sanghaviar/aws_res
           path: https://github.com/sanghaviar/modules
 
       - name: Setup Terraform
