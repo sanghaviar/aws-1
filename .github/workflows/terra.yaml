@@ -15,8 +15,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Checkout GITHUB_ACTION_2
+      - name: Checkout aws
         uses: actions/checkout@v2
+      - name: Checkout Another Repo
+        uses: actions/checkout@v2
+        with:
+         repository: sanghaviar/modules
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
