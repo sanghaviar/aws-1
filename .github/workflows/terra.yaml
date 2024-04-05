@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: Terraform Deployment
 
 on:
@@ -22,3 +23,27 @@ jobs:
       run: terraform init
 
 
+=======
+name: Terraform Deployment
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: latest
+
+    - name: Terraform Init
+      run: terraform init
+>>>>>>> d2fa1ba72afc5524bfbf4ddb128b39b98fff71d6
