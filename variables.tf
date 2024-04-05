@@ -1,8 +1,8 @@
-variable "CLIENT_ID1" {
+variable "AWS_ACCESS_KEY_ID" {
   type = string
 }
 
-variable "CLIENT_SECRET1" {
+variable "AWS_SECRET_ACCESS_KEY" {
   type = string
 }
 variable "region" {
