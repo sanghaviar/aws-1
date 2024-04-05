@@ -22,20 +22,6 @@ jobs:
         run: git submodule add https://github.com/sanghaviar/modules
         # No working-directory specified to add submodule to the root of the repository
 
-      - name: Commit submodule addition
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Add modules submodule"
-        # No working-directory specified to commit changes to the root of the repository
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
