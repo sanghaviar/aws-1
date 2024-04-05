@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+
 jobs:
   terraform:
     name: "Terraform"
@@ -12,15 +13,16 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.TF_VAR_CLIENT_ID1 }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.TF_VAR_CLIENT_SECRET1 }}
       AWS_REGION: "us-east-1"
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
       - name: Checkout aws
         uses: actions/checkout@v2
-      - name: Checkout Another Repo
+
+      - name: Checkout modules
         uses: actions/checkout@v2
         with:
-         repository: sanghaviar/modules
+          repository: sanghaviar/modules
+          path: https://github.com/sanghaviar/modules
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
@@ -31,15 +33,13 @@ jobs:
 
       - name: Terraform plan
         id: plan
-        if: github.event_name=='push'
+        if: github.event_name == 'push'
         run: terraform plan -out=tfplan
         continue-on-error: true
+
       - name: Terraform Plan Status
         if: steps.plan.outcome == 'failure'
         run: exit 1
-      # - name: Terraform Apply
-      #   if: github.ref =='refs/heads/main' && github.event_name =='push'
-      #   run: terraform apply -auto-approve
 
       - name: Publish Terraform Plan Artifact
         if: steps.plan.outcome == 'success'
