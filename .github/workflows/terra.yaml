@@ -10,8 +10,8 @@ jobs:
     name: "Terraform"
     runs-on: ubuntu-latest
     env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.TF_VAR_CLIENT_ID1 }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.TF_VAR_CLIENT_SECRET1 }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.CLIENT_ID1}}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.CLIENT_SECRET1}}
       AWS_REGION: "us-east-1"
 
     steps:
