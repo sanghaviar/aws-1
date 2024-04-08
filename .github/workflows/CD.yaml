@@ -17,6 +17,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: terraform-plan
+          path: .github/workflows/ci.yaml
 
 
       # Set up Terraform
