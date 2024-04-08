@@ -10,8 +10,8 @@ jobs:
     name: "Terraform"
     runs-on: ubuntu-latest
     env:
-      AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-      AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 
     steps:
@@ -31,11 +31,12 @@ jobs:
 
       - name: Terraform plan
         id: plan
-        if: github.event_name == 'push'
-        run: |
-          AWS_ACCESS_KEY_ID=${{secrets.AWS_ACCESS_KEY_ID}} \
-          AWS_SECRET_ACCESS_KEY=${{secrets.AWS_SECRET_ACCESS_KEY}} \
-          terraform plan -out=tfplan -input=false
+        run: terraform plan -out=tfplan
+#        if: github.event_name == 'push'
+#        run: |
+#          AWS_ACCESS_KEY_ID=${{secrets.AWS_ACCESS_KEY_ID}} \
+#          AWS_SECRET_ACCESS_KEY=${{secrets.AWS_SECRET_ACCESS_KEY}} \
+#          terraform plan -out=tfplan -input=false
         continue-on-error: true
 
 
