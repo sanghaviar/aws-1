@@ -17,7 +17,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: terraform-plan
-          path: .terraform
+
 
       # Set up Terraform
       - name: Setup Terraform
