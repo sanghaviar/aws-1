@@ -2,7 +2,7 @@ name: "Terraform-Apply-Infra-Release"
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   terraform:
@@ -43,3 +43,8 @@ jobs:
         with:
           name: terraform-plan
           path: tfplan
+      - name: Store workflow run ID and artifact name
+        id: store_workflow_info
+        run: |
+            echo "::set-output name=workflow_run_id::${{ github.run_id }}"
+            echo "::set-output name=artifact_name::terraform-plan"    
