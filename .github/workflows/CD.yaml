@@ -1,16 +1,16 @@
-name: Terraform-Apply-Infra-Release
+name: Terraform-Apply-Infra-CD
 
 on:
-  push:
-    branches:
-      - master
-
+  workflow_run:
+    workflows: ["Terraform-Apply-Infra-Release"]
+    types:
+      - completed
 
 jobs:
   terraform_apply:
     name: "Terraform Apply"
     runs-on: ubuntu-latest
-    needs: terraform_plan
+    needs: Terraform-Apply-Infra-Release.terraform
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -25,8 +25,7 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Apply
-        run: terraform apply --auto-approve
+        run: terraform apply tfplan
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
