@@ -19,11 +19,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Download Terraform plan from CI artifact
+      - name: Download Terraform plan
         uses: actions/download-artifact@v2
         with:
           name: terraform-plan
-          path: tfplan
+          path: .
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
@@ -33,3 +33,5 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+
