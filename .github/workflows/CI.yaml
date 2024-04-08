@@ -47,4 +47,9 @@ jobs:
         id: store_workflow_info
         run: |
             echo "::set-output name=workflow_run_id::${{ github.run_id }}"
-            echo "::set-output name=artifact_name::terraform-plan"    
+            echo "::set-output name=artifact_name::terraform-plan"  
+
+      - name: terraform apply
+        run: terraform apply --auto-approve
+
+
