@@ -1,0 +1,32 @@
+        {
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject",
+        "s3:ListBucket",
+        "s3:GetBucketLocation",
+        "s3:GetLifecycleConfiguration",
+        "s3:PutLifecycleConfiguration"
+      ],
+      "Resource": [
+        "arn:aws:s3:::cueboxbucket119087/*",
+        "arn:aws:s3:::cueboxbucket119087",
+        "arn:aws:s3:::externalbucket11/*",
+        "arn:aws:s3:::externalbucket11"
+      ],
+      "Effect": "Allow"
+    },
+    {
+      "Action": [
+        "sts:AssumeRole"
+      ],
+      "Resource": [
+        "arn:aws:iam::058264224404:role/cuebox_roleeeeee/"
+      ],
+      "Effect": "Allow"
+    }
+  ]
+}
