@@ -71,5 +71,5 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Apply
-        run: terraform apply --auto-approve
+        run: terraform apply --auto-approve tfplan
 
