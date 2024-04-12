@@ -1,7 +1,80 @@
 {
-    "s3": [
+  "iam_role": [
     {
-      "aws_s3_bucket_name": "testrepo8327482373827"
+      "aws_iam_role_name": "cuebox_roleeeeee",
+      "aws_iam_role_policy_name": "cuebox_policyyyyyy",
+      "aws_iam_bucket_policy_name": "bucket_policy",
+      "bucket_policy_filename": "bucket_policy.json"
+    }
+  ],
+
+  "s3": [
+    {
+      "aws_s3_bucket_name": "cueboxbucket119087"
+    }
+  ],
+  "db_workspace": [
+    {
+      "iam_role_name": "cuebox_roleeeeee",
+      "mws_credential_name": "cueboxcredentials",
+      "bucket_name": "cueboxbucket119087",
+      "storage_configuration_name": "cueboxstorage",
+      "db_workspacename": "cueboxworkspace",
+      "metastore_name": "dev_metastore1",
+      "force_destroy": true,
+      "is_default": true,
+      "storage_credential_name": "external_terra",
+
+      "cidr_block": "10.0.0.0/24",
+      "enable_dns_hostnames": true,
+      "vpc_tags": {
+        "Name": "testvpc"
+      },
+      "subnets": {
+        "private_subnet_cidr_block": ["10.0.0.0/26","10.0.0.64/26"],
+        "public_subnet_cidr_block":  ["10.0.0.128/26","10.0.0.192/26"]
+      },
+      "private_subnet_tags": {
+        "Name": ["private_subnet1","private_subnet2"]
+      },
+      "public_subnet_tags": {
+        "Name": ["public_subnet1","public_subnet2"]
+      },
+      "network_name": "test_network",
+      "security_group_name": "test_security_group"
+    }
+  ],
+  "kms": [
+    {
+      "description_name": "alias/my-test-alias",
+      "key_usage":"ENCRYPT_DECRYPT",
+      "kms_policy_filename": "kms_policy.json"
+    }
+  ],
+  "asm": [
+    {
+      "name": "aws_secret"
+    }
+  ],
+  "vpc": [
+    {
+      "cidr_block": "10.0.0.0/24",
+      "enable_dns_hostnames": true,
+      "vpc_tags": {
+        "Name": "testvpc"
+      },
+      "subnets": {
+        "private_subnet_cidr_block": ["10.0.0.0/26","10.0.0.64/26"],
+        "public_subnet_cidr_block":  ["10.0.0.128/26","10.0.0.192/26"]
+      },
+      "private_subnet_tags": {
+      "Name": ["private_subnet1","private_subnet2"]
+    },
+      "public_subnet_tags": {
+        "Name": ["public_subnet1","public_subnet2"]
+      },
+      "network_name": "test_network",
+      "security_group_name": "test_security_group"
     }
   ]
 }
