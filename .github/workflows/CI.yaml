@@ -67,11 +67,9 @@ jobs:
 
       - name: Terraform Plan
         uses: actions/download-artifact@v2
-#        working-directory: tfplan
+#        run:
+#        working-directory: tf-plan
 
       - name: Terraform Apply
-
-#        new_tfplan
-#        working-directory: tfplan
-#        uses: actions/download-artifact@v2
-        run: terraform apply --auto-approve
+        run: terraform apply --auto-approve tfplan
+        working-directory: tfplan
