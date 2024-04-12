@@ -16,6 +16,7 @@
   "db_workspace": [
     {
       "iam_role_name": "cuebox_roleeeeee",
+      "aws_s3_bucket_name": "cueboxbucket119087",
       "mws_credential_name": "cueboxcredentials",
       "bucket_name": "cueboxbucket119087",
       "storage_configuration_name": "cueboxstorage",
