@@ -71,5 +71,6 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Apply
-        run: terraform apply --auto-approve -chdir=tfplan
+        run: terraform apply --auto-approve tfplan
+        working-directory: tfplan
 
