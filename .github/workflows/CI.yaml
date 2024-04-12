@@ -65,10 +65,13 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
-      - name: Terraform Plan
-        run: terraform plan -out=new_tfplan
-        working-directory: tfplan
+#      - name: Terraform Plan
+#        run: terraform plan -out=new_tfplan
+#        working-directory: tfplan
 
       - name: Terraform Apply
-        run: terraform apply --auto-approve new_tfplan
-        working-directory: tfplan
+
+#        new_tfplan
+#        working-directory: tfplan
+        uses: actions/download-artifact@v2
+        run: terraform apply --auto-approve
