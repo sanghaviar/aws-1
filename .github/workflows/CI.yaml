@@ -65,7 +65,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: terraform-plan
-          path: .
+          path: tfplan
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
