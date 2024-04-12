@@ -12,14 +12,12 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-
     steps:
       - name: Checkout aws
         uses: actions/checkout@v2
 
       - name: Add modules as submodule
         run: git submodule add https://github.com/sanghaviar/modules
-
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
@@ -49,9 +47,6 @@ jobs:
             echo "::set-output name=workflow_run_id::${{ github.run_id }}"
             echo "::set-output name=artifact_name::terraform-plan"  
 
-#      - name: terraform apply
-#        run: terraform apply --auto-approve
-
   terraform1:
     name: "Terraform1"
     runs-on: ubuntu-latest
@@ -75,6 +70,5 @@ jobs:
         working-directory: tfplan
 
       - name: Terraform Apply
-        run: terraform apply --auto-approve tfplan
+        run: terraform apply --auto-approve new_tfplan
         working-directory: tfplan
-
