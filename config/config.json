@@ -50,7 +50,7 @@
   ],
   "kms": [
     {
-      "description_name": "alias/my-test-alias",
+      "description_name": "alias/my-test-alias1",
       "key_usage":"ENCRYPT_DECRYPT",
       "aws_iam_role_name": "cuebox_role1",
       "create_kms_policy": 0
@@ -58,7 +58,7 @@
   ],
   "asm": [
     {
-      "name": "aws_secret"
+      "name": "aws_secret1"
     }
   ]
 }
