@@ -16,28 +16,30 @@ module "s3_bucket" {
   config = each.value
 }
 
-#module "db_workspace" {
-#  providers = {
-#    databricks = databricks.accounts
-#  }
-#  source = "./modules/aws_res/workspace"
-#  for_each      = {for entry in local.data["db_workspace"] : entry["storage_configuration_name"] => entry}
-#  config = each.value
-#  ACCOUNT_ID = var.ACCOUNT_ID
-#  region = var.region
-##  depends_on = [module.iam_role]
-#}
+module "db_workspace" {
+  providers = {
+    databricks = databricks.accounts
+  }
+  source = "./modules/aws_res/workspace"
+  for_each      = {for entry in local.data["db_workspace"] : entry["storage_configuration_name"] => entry}
+  config = each.value
+  ACCOUNT_ID = var.ACCOUNT_ID
+  region = var.region
+  depends_on = [module.iam_role]
+}
 
 module "kms" {
   source = "./modules/aws_res/kms"
   for_each      = {for entry in local.data["kms"] : entry["description_name"] => entry}
   config = each.value
+  depends_on = [module.iam_role]
 }
 
 module "asm" {
   source = "./modules/aws_res/asm"
   for_each      = {for entry in local.data["asm"] : entry["name"] => entry}
   config = each.value
+  depends_on = [module.iam_role]
 }
 
 

@@ -20,13 +20,16 @@ terraform {
 
 provider "aws" {
   region = "us-east-1"
+  access_key = var.AWS_ACCESS_KEY_ID
+  secret_key = var.AWS_SECRET_ACCESS_KEY
+
 }
 
 provider "databricks" {
   alias         = "mws"
   host          = "https://accounts.cloud.databricks.com"
-  client_id     = var.CLIENT_ID1
-  client_secret = var.CLIENT_SECRET1
+  access_key     = var.AWS_ACCESS_KEY_ID
+  secret_key = var.AWS_SECRET_ACCESS_KEY
   account_id = var.ACCOUNT_ID
 }
 provider "databricks" {
