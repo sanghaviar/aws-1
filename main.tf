@@ -24,7 +24,7 @@ module "s3_bucket" {
 }
 module "iam_role_policy" {
    source = "./modules/aws_res/iam_role_policy"
-  for_each      = {for entry in local.data["iam_role_policy"] : entry["aws_iam_role_name"] => entry}
+  for_each      = {for entry in local.data["iam_role_policy"] : entry["iam_role_name"] => entry}
   config = each.value
   depends_on = [module.s3_bucket]
 }
