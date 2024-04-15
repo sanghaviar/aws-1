@@ -14,7 +14,7 @@ terraform {
     bucket = "statefilebucketcubx"
     region = "us-east-1"
     key = "repo1.tfstate"
-#    dynamodb_table = "test_dynamo111"
+    dynamodb_table = "test_dynamo111"
   }
 }
 

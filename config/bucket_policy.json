@@ -12,8 +12,8 @@
         "s3:PutLifecycleConfiguration"
       ],
       "Resource": [
-        "arn:aws:s3:::cueboxbucket119087/*",
-        "arn:aws:s3:::cueboxbucket119087",
+        "arn:aws:s3:::testcueboxbucket11908745678/*",
+        "arn:aws:s3:::testcueboxbucket11908745678",
         "arn:aws:s3:::externalbucket11/*",
         "arn:aws:s3:::externalbucket11"
       ],
@@ -24,7 +24,7 @@
         "sts:AssumeRole"
       ],
       "Resource": [
-        "arn:aws:iam::058264224404:role/cuebox_roleeeeee/"
+        "arn:aws:iam::058264224404:role/cuebox_role1/"
       ],
       "Effect": "Allow"
     }
