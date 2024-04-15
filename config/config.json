@@ -4,8 +4,8 @@
       "aws_iam_role_name": "cuebox_role1",
       "aws_iam_role_policy_name": "cuebox_policy1",
       "aws_iam_bucket_policy_name": "bucket_policy",
-      "bucket_policy_filename": "bucket_policy.json",
-      "aws_s3_bucket": "testcueboxbucket11908745678"
+      "bucket_policy_filename": "bucket_policy.json"
+
     }
   ],
 
