@@ -37,7 +37,7 @@ provider "databricks" {
   host = "https://accounts.cloud.databricks.com"
   #    client_id = "ff089d9f-ab47-4591-93d0-c9f603455839"
   #    client_secret = " dose4cb65bc38bf2bee8c306865bfe455a22"
-  username = var.databricks_account_username
-  password = var.databricks_account_password
+  username = var.DATABRICKS_ACCOUNT_USERNAME
+  password = var.DATABRICKS_ACCOUNT_PASSWORD
   account_id = var.ACCOUNT_ID
 }
