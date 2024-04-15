@@ -10,6 +10,11 @@ module "iam_role" {
   config = each.value
   ACCOUNT_ID = var.ACCOUNT_ID
 }
+module "cross_account" {
+  source = "./modules/aws_res/cross_account"
+  for_each      = {for entry in local.data["iam_crossaccount"] : entry["iam_role_name"] => entry}
+  config = each.value
+}
 module "s3_bucket" {
   source = "./modules/aws_res/s3"
   for_each      = {for entry in local.data["s3"] : entry["aws_s3_bucket_name"] => entry}
