@@ -18,5 +18,5 @@ variable "region" {
   default = "us-east-1"
 }
 
-variable "databricks_account_username" {}
-variable "databricks_account_password" {}
+variable "DATABRICKS_ACCOUNT_USERNAME" {}
+variable "DATABRICKS_ACCOUNT_PASSWORD" {}
