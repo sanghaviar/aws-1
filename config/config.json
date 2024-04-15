@@ -31,7 +31,7 @@
       "bucket_name": "cueboxbucket119087",
       "storage_configuration_name": "cueboxstorage",
       "db_workspacename": "cueboxworkspace",
-      "metastore_name": "dev_metastore1",
+      "metastore_name": "dev_metastore",
       "force_destroy": true,
       "is_default": true,
       "storage_credential_name": "external_terra",
@@ -39,7 +39,7 @@
       "cidr_block": "10.0.0.0/24",
       "enable_dns_hostnames": true,
       "vpc_tags": {
-        "Name": "testvpc"
+        "Name": "testvpccbx"
       },
       "subnets": {
         "private_subnet_cidr_block": ["10.0.0.0/26","10.0.0.64/26"],
