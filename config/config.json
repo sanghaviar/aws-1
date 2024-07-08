@@ -1,45 +1,45 @@
 {
   "iam_role": [
     {
-      "aws_iam_role_name": "cuebox_role1"
+      "aws_iam_role_name": "fhpl_role"
 
     }
   ],
 "iam_crossaccount": [
   {
-    "iam_role_name": "cuebox_role1",
-    "aws_iam_role_policy_name": "cuebox_policy1"
+    "iam_role_name": "fhpl_role",
+    "aws_iam_role_policy_name": "fhpl_policy"
   }
 ],
   "iam_role_policy": [
     {
-      "iam_role_name": "cuebox_role1",
-      "aws_iam_bucket_policy_name": "bucket_policy",
+      "iam_role_name": "fhpl_role",
+      "aws_iam_bucket_policy_name": "fhpl_bucket_policy",
       "bucket_policy_filename": "bucket_policy.json"
     }
   ],
   "s3": [
     {
-      "aws_s3_bucket_name": "testcueboxbucket11908745678"
+      "aws_s3_bucket_name": "fhpl_bucket"
     }
   ],
   "db_workspace": [
     {
-      "iam_role_name": "cuebox_role1",
-      "aws_s3_bucket_name": "testcueboxbucket11908745678",
-      "mws_credential_name": "cueboxcredentials",
-      "bucket_name": "cueboxbucket119087",
-      "storage_configuration_name": "cueboxstorage",
-      "db_workspacename": "cueboxworkspace",
-      "metastore_name": "dev_metastore",
+      "iam_role_name": "fhpl_role",
+      "aws_s3_bucket_name": "fhpl_bucket",
+      "mws_credential_name": "fhplcredentials",
+      "bucket_name": "fhpl_bucket",
+      "storage_configuration_name": "fhplstorage",
+      "db_workspacename": "fhplworkspace",
+      "metastore_name": "fhpl_metastore",
       "force_destroy": true,
       "is_default": true,
-      "storage_credential_name": "external_terra",
+      "storage_credential_name": "fhpl_external",
 
       "cidr_block": "10.0.0.0/24",
       "enable_dns_hostnames": true,
       "vpc_tags": {
-        "Name": "testvpc"
+        "Name": "fhpl_vpc"
       },
       "subnets": {
         "private_subnet_cidr_block": ["10.0.0.0/26","10.0.0.64/26"],
@@ -51,21 +51,21 @@
       "public_subnet_tags": {
         "Name": ["public_subnet1","public_subnet2"]
       },
-      "network_name": "test_network",
-      "security_group_name": "test_security_group"
+      "network_name": "fhpl_network",
+      "security_group_name": "fhpl_security_group"
     }
   ],
   "kms": [
     {
-      "description_name": "alias/my-test-alias1",
+      "description_name": "alias/fhpl-kms",
       "key_usage":"ENCRYPT_DECRYPT",
-      "aws_iam_role_name": "cuebox_role1",
+      "aws_iam_role_name": "fhpl_role",
       "create_kms_policy": 0
     }
   ],
   "asm": [
     {
-      "name": "aws_secret1"
+      "name": "fhpl_aws_secret"
     }
   ]
 }
