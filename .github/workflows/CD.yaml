@@ -1,70 +1,70 @@
-name: Release
+# name: Release
 
-on:
-  workflow_dispatch: # Manually trigger the release workflow
+# on:
+#   workflow_dispatch: # Manually trigger the release workflow
 
-jobs:
-  release:
-    name: Release
-    runs-on: ubuntu-latest
+# jobs:
+#   release:
+#     name: Release
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
 
-      # Download workflow run ID and artifact name from the workflow artifact
-      - name: Download Workflow Info Artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: workflow-info
-          path: .
+#       # Download workflow run ID and artifact name from the workflow artifact
+#       - name: Download Workflow Info Artifact
+#         uses: actions/download-artifact@v2
+#         with:
+#           name: workflow-info
+#           path: .
 
-      # Retrieve workflow run ID and artifact name
-      - name: Read workflow info
-        id: read_workflow_info
-        run: |
-          echo "Workflow Run ID: ${{ env.RUN_ID }}"
-          echo "Artifact Name: ${{ env.ARTIFACT_NAME }}"
-        env:
-          RUN_ID: $(cat workflow_run_id)
-          ARTIFACT_NAME: $(cat artifact_name)
+#       # Retrieve workflow run ID and artifact name
+#       - name: Read workflow info
+#         id: read_workflow_info
+#         run: |
+#           echo "Workflow Run ID: ${{ env.RUN_ID }}"
+#           echo "Artifact Name: ${{ env.ARTIFACT_NAME }}"
+#         env:
+#           RUN_ID: $(cat workflow_run_id)
+#           ARTIFACT_NAME: $(cat artifact_name)
 
-      # Download Terraform plan artifact from the specified workflow run
-      - name: Download Terraform plan artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: ${{ steps.read_workflow_info.outputs.ARTIFACT_NAME }}
-          run_id: ${{ steps.read_workflow_info.outputs.RUN_ID }}
-          path: .terraform
+#       # Download Terraform plan artifact from the specified workflow run
+#       - name: Download Terraform plan artifact
+#         uses: actions/download-artifact@v2
+#         with:
+#           name: ${{ steps.read_workflow_info.outputs.ARTIFACT_NAME }}
+#           run_id: ${{ steps.read_workflow_info.outputs.RUN_ID }}
+#           path: .terraform
 
-      # Set up Terraform
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
+#       # Set up Terraform
+#       - name: Setup Terraform
+#         uses: hashicorp/setup-terraform@v1
 
-      # Apply Terraform changes
-      - name: Terraform Apply
-        run: terraform apply .terraform/tfplan -auto-approve
+#       # Apply Terraform changes
+#       - name: Terraform Apply
+#         run: terraform apply .terraform/tfplan -auto-approve
 
-      # Tag the release
-      - name: Create Git tag
-        run: git tag v1.0.${{ github.run_number }}
+#       # Tag the release
+#       - name: Create Git tag
+#         run: git tag v1.0.${{ github.run_number }}
 
-      # Push tag to GitHub
-      - name: Push Git tag
-        run: git push origin v1.0.${{ github.run_number }}
+#       # Push tag to GitHub
+#       - name: Push Git tag
+#         run: git push origin v1.0.${{ github.run_number }}
 
-      # Create a release in GitHub
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        with:
-          tag_name: v1.0.${{ github.run_number }}
-          release_name: Release v1.0.${{ github.run_number }}
-          body: |
-            Release v1.0.${{ github.run_number }}
-            Changes:
-            - Added Terraform changes
-          draft: false
-          prerelease: false
+#       # Create a release in GitHub
+#       - name: Create Release
+#         id: create_release
+#         uses: actions/create-release@v1
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+#         with:
+#           tag_name: v1.0.${{ github.run_number }}
+#           release_name: Release v1.0.${{ github.run_number }}
+#           body: |
+#             Release v1.0.${{ github.run_number }}
+#             Changes:
+#             - Added Terraform changes
+#           draft: false
+#           prerelease: false
