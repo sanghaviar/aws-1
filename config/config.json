@@ -20,15 +20,15 @@
   ],
   "s3": [
     {
-      "aws_s3_bucket_name": "fhpl_bucket"
+      "aws_s3_bucket_name": "fhplbucket23e5625"
     }
   ],
   "db_workspace": [
     {
       "iam_role_name": "fhpl_role",
-      "aws_s3_bucket_name": "fhpl_bucket",
+      "aws_s3_bucket_name": "fhplbucket23e5625",
       "mws_credential_name": "fhplcredentials",
-      "bucket_name": "fhpl_bucket",
+      "bucket_name": "fhplbucket23e5625",
       "storage_configuration_name": "fhplstorage",
       "db_workspacename": "fhplworkspace",
       "metastore_name": "fhpl_metastore",
