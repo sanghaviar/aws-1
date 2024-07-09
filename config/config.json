@@ -28,7 +28,7 @@
       "iam_role_name": "fhpl_role",
       "aws_s3_bucket_name": "fhplbucket23e5625",
       "mws_credential_name": "fhplcredentials",
-      "bucket_name": "fhplbucket23e5625",
+      "bucket_name": "cueboxbucket119087",
       "storage_configuration_name": "fhplstorage",
       "db_workspacename": "fhplworkspace",
       "metastore_name": "fhpl_metastore",
