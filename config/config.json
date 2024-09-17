@@ -15,7 +15,7 @@
     {
       "iam_role_name": "fhpl_role1",
       "aws_iam_bucket_policy_name": "fhpl_bucket_policy1",
-      "bucket_policy_filename": "bucket_policy1.json"
+      "bucket_policy_filename": "bucket_policy.json"
     }
   ],
   "s3": [
