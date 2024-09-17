@@ -1,9 +1,6 @@
 
 name: "InitialSetUp"
 on:
-  push:
-    branches:
-      - feature
   workflow_dispatch:
 jobs:
   terraform:
