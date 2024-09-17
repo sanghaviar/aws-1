@@ -32,7 +32,7 @@ module "db_workspace" {
   providers = {
     databricks = databricks.accounts
   }
-  source = "./modules/aws_res/workspace"
+  source = "./modules-1/aws_res/workspace"
   for_each      = {for entry in local.data["db_workspace"] : entry["storage_configuration_name"] => entry}
   config = each.value
   ACCOUNT_ID = var.ACCOUNT_ID
