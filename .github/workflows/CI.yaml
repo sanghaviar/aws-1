@@ -51,18 +51,6 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
-      - name: Publish Terraform Plan Artifact
-        if: steps.plan.outcome == 'success'
-        uses: actions/upload-artifact@v2
-        with:
-          name: terraform-plan
-          path: tfplan
-      - name: Store workflow run ID and artifact name
-        id: store_workflow_info
-        run: |
-            echo "::set-output name=workflow_run_id::${{ github.run_id }}"
-            echo "::set-output name=artifact_name::terraform-plan"
-
       - name: Terraform Apply
         env:
           TF_VAR_AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
