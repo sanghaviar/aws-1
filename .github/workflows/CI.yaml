@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Add modules as submodule
-        run: git submodule add https://github.com/sanghaviar/modules-1.git
+        run: git submodule add https://github.com/sanghaviar/modules-1
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
