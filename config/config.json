@@ -25,16 +25,16 @@
   ],
   "db_workspace": [
     {
-      "iam_role_name": "fhpl_role1",
-      "aws_s3_bucket_name": "fhplbucket23e562511",
-      "mws_credential_name": "fhplcredentials1",
+      "iam_role_name": "fhpl_role",
+      "aws_s3_bucket_name": "fhplbucket23e5625",
+      "mws_credential_name": "fhplcredentials",
       "bucket_name": "cueboxbucket119087",
-      "storage_configuration_name": "fhplstorage1",
-      "db_workspacename": "fhplworkspace1",
-      "metastore_name": "fhpl_metastore1",
+      "storage_configuration_name": "fhplstorage",
+      "db_workspacename": "fhplworkspace",
+      "metastore_name": "fhpl_metastore",
       "force_destroy": true,
       "is_default": true,
-      "storage_credential_name": "fhpl_external1",
+      "storage_credential_name": "fhpl_external",
 
       "cidr_block": "10.0.0.0/24",
       "enable_dns_hostnames": true,
@@ -46,13 +46,13 @@
         "public_subnet_cidr_block":  ["10.0.0.128/26","10.0.0.192/26"]
       },
       "private_subnet_tags": {
-        "Name": ["private_subnet11","private_subnet21"]
+        "Name": ["private_subnet1","private_subnet2"]
       },
       "public_subnet_tags": {
-        "Name": ["public_subnet11","public_subnet21"]
+        "Name": ["public_subnet1","public_subnet2"]
       },
-      "network_name": "fhpl_network1",
-      "security_group_name": "fhpl_security_group1"
+      "network_name": "fhpl_network",
+      "security_group_name": "fhpl_security_group"
     }
   ],
   "kms": [
