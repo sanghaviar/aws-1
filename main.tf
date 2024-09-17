@@ -5,25 +5,25 @@ module "iam_role" {
   providers = {
     databricks= databricks.accounts
   }
-  source = "./modules/aws_res/iam"
+  source = "./modules-1/aws_res/iam"
   for_each      = {for entry in local.data["iam_role"] : entry["aws_iam_role_name"] => entry}
   config = each.value
   ACCOUNT_ID = var.ACCOUNT_ID
 }
 module "cross_account" {
-  source = "./modules/aws_res/cross_account"
+  source = "./modules-1/aws_res/cross_account"
   for_each      = {for entry in local.data["iam_crossaccount"] : entry["iam_role_name"] => entry}
   config = each.value
   depends_on = [module.iam_role]
 }
 
 module "s3_bucket" {
-  source = "./modules/aws_res/s3"
+  source = "./modules-1/aws_res/s3"
   for_each      = {for entry in local.data["s3"] : entry["aws_s3_bucket_name"] => entry}
   config = each.value
 }
 module "iam_role_policy" {
-   source = "./modules/aws_res/iam_role_policy"
+   source = "./modules-1/aws_res/iam_role_policy"
   for_each      = {for entry in local.data["iam_role_policy"] : entry["iam_role_name"] => entry}
   config = each.value
   depends_on = [module.s3_bucket]
