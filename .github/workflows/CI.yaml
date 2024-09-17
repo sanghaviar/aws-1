@@ -3,8 +3,8 @@ name: "InitialSetUp"
 on:
   push:
     branches:
-      - master
-
+      - feature
+  workflow_dispatch:
 jobs:
   terraform:
     name: "AWS_Initial_SetUp"
