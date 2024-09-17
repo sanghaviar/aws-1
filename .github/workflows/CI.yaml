@@ -10,8 +10,8 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       ACCOUNT_ID:  ${{ secrets.ACCOUNT_ID }}
-      DATABRICKS_ACCOUNT_USERNAME: ${{ secrets.DATABRICKS_ACCOUNT_USERNAME }}
-      DATABRICKS_ACCOUNT_PASSWORD: ${{ secrets.DATABRICKS_ACCOUNT_PASSWORD }}
+      DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
+      DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_CLIENT_SECRET }}
 
     steps:
       - name: Checkout aws
@@ -29,8 +29,8 @@ jobs:
           TF_VAR_AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           TF_VAR_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           TF_VAR_ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
-          TF_VAR_DATABRICKS_ACCOUNT_USERNAME: ${{ secrets.DATABRICKS_ACCOUNT_USERNAME }}
-          TF_VAR_DATABRICKS_ACCOUNT_PASSWORD: ${{ secrets.DATABRICKS_ACCOUNT_PASSWORD }}
+          TF_VAR_DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
+          TF_VAR_DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_CLIENT_SECRET }}
         run: terraform init
 
       - name: Terraform plan
@@ -39,8 +39,8 @@ jobs:
           TF_VAR_AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           TF_VAR_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           TF_VAR_ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
-          TF_VAR_DATABRICKS_ACCOUNT_USERNAME: ${{ secrets.DATABRICKS_ACCOUNT_USERNAME }}
-          TF_VAR_DATABRICKS_ACCOUNT_PASSWORD: ${{ secrets.DATABRICKS_ACCOUNT_PASSWORD }}
+          TF_VAR_DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
+          TF_VAR_DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_CLIENT_SECRET }}
         run: terraform plan -out=tfplan
         continue-on-error: true
 
@@ -53,6 +53,6 @@ jobs:
           TF_VAR_AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           TF_VAR_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           TF_VAR_ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
-          TF_VAR_DATABRICKS_ACCOUNT_USERNAME: ${{ secrets.DATABRICKS_ACCOUNT_USERNAME }}
-          TF_VAR_DATABRICKS_ACCOUNT_PASSWORD: ${{ secrets.DATABRICKS_ACCOUNT_PASSWORD }}
+          TF_VAR_DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
+          TF_VAR_DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_CLIENT_SECRET }}
         run: terraform apply --auto-approve
