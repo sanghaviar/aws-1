@@ -28,7 +28,7 @@ module "iam_role_policy" {
   config = each.value
   depends_on = [module.s3_bucket]
 }
-module "db_workspace" {
+#module "db_workspace" {
 #  providers = {
 #    databricks = databricks.accounts
 #  }
