@@ -4,11 +4,11 @@ variable "AWS_ACCESS_KEY_ID" {
 variable "AWS_SECRET_ACCESS_KEY" {
 }
 
-variable "CLIENT_ID" {
+variable "DATABRICKS_CLIENT_ID" {
   type = string
 }
 
-variable "CLIENT_SECRET" {
+variable "DATABRICKS_CLIENT_SECRET" {
   type = string
 }
 
