@@ -1,40 +1,40 @@
 {
   "iam_role": [
     {
-      "aws_iam_role_name": "fhpl_role"
+      "aws_iam_role_name": "fhpl_role1"
 
     }
   ],
 "iam_crossaccount": [
   {
-    "iam_role_name": "fhpl_role",
-    "aws_iam_role_policy_name": "fhpl_policy"
+    "iam_role_name": "fhpl_role1",
+    "aws_iam_role_policy_name": "fhpl_policy1"
   }
 ],
   "iam_role_policy": [
     {
-      "iam_role_name": "fhpl_role",
-      "aws_iam_bucket_policy_name": "fhpl_bucket_policy",
-      "bucket_policy_filename": "bucket_policy.json"
+      "iam_role_name": "fhpl_role1",
+      "aws_iam_bucket_policy_name": "fhpl_bucket_policy1",
+      "bucket_policy_filename": "bucket_policy1.json"
     }
   ],
   "s3": [
     {
-      "aws_s3_bucket_name": "fhplbucket23e5625"
+      "aws_s3_bucket_name": "fhplbucket23e562511"
     }
   ],
   "db_workspace": [
     {
-      "iam_role_name": "fhpl_role",
-      "aws_s3_bucket_name": "fhplbucket23e5625",
-      "mws_credential_name": "fhplcredentials",
+      "iam_role_name": "fhpl_role1",
+      "aws_s3_bucket_name": "fhplbucket23e562511",
+      "mws_credential_name": "fhplcredentials1",
       "bucket_name": "cueboxbucket119087",
-      "storage_configuration_name": "fhplstorage",
-      "db_workspacename": "fhplworkspace",
-      "metastore_name": "fhpl_metastore",
+      "storage_configuration_name": "fhplstorage1",
+      "db_workspacename": "fhplworkspace1",
+      "metastore_name": "fhpl_metastore1",
       "force_destroy": true,
       "is_default": true,
-      "storage_credential_name": "fhpl_external",
+      "storage_credential_name": "fhpl_external1",
 
       "cidr_block": "10.0.0.0/24",
       "enable_dns_hostnames": true,
@@ -46,13 +46,13 @@
         "public_subnet_cidr_block":  ["10.0.0.128/26","10.0.0.192/26"]
       },
       "private_subnet_tags": {
-        "Name": ["private_subnet1","private_subnet2"]
+        "Name": ["private_subnet11","private_subnet21"]
       },
       "public_subnet_tags": {
-        "Name": ["public_subnet1","public_subnet2"]
+        "Name": ["public_subnet11","public_subnet21"]
       },
-      "network_name": "fhpl_network",
-      "security_group_name": "fhpl_security_group"
+      "network_name": "fhpl_network1",
+      "security_group_name": "fhpl_security_group1"
     }
   ],
   "kms": [
