@@ -13,7 +13,7 @@ terraform {
   backend "s3" {
     bucket = "statefilebucketcubx"
     region = "us-east-1"
-    key = "repo2.tfstate"
+    key = "repo3.tfstate"
     dynamodb_table = "test_dynamo111"
   }
 }
